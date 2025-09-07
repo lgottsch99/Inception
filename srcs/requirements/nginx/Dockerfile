@@ -5,10 +5,11 @@ FROM debian:12
 RUN apt update
 RUN apt install nginx -y
 
-RUN apt install ufw -y
+#RUN apt install ufw -y  ->containers dont control HOST FIREWALL lol
 #RUN  ufw enable
-RUN ufw allow 443
+#RUN ufw allow 443
 
 
 #runs when running cont
-CMD ["ufw status"]
+#CMD ["echo", "hi hellooo"]
+CMD ["nginx", "-v"]

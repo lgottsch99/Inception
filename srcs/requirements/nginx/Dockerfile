@@ -2,8 +2,9 @@ FROM debian:12
 
 #RUN runs wehen building img
 #download + configure nginx
-RUN apt update
+RUN apt update -y
 RUN apt install nginx -y
+
 
 #RUN apt install ufw -y  ->containers dont control HOST FIREWALL lol
 #RUN  ufw enable
@@ -12,4 +13,9 @@ RUN apt install nginx -y
 
 #runs when running cont
 #CMD ["echo", "hi hellooo"]
-CMD ["nginx", "-v"]
+#CMD -> becomes pid1!!! The container lives and dies with PID 1. If PID 1 exits, the container exits.
+# -g overrides anything specified in config file
+CMD ["nginx", "-g", "daemon off;"]
+# CMD ["cat", "/etc/nginx/nginx.conf"]
+
+#configure nginx using config file?

@@ -1,0 +1,8 @@
+#https://docs.docker.com/reference/compose-file/services/
+
+services:
+  nginx:
+    build: requirements/nginx/.
+    container_name: nginx_cont
+    ports:
+      - "80:80"

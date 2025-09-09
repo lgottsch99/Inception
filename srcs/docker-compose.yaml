@@ -6,11 +6,14 @@ services:
     container_name: nginx_cont
     ports:
       - "8080:80"
+    volumes:
+      - ./web:/var/www/html
+
   wordpress:
     build: requirements/wordpress/.
     container_name: wp_cont
-
     volumes:
+      - ./web:/var/www/html
 
 
   

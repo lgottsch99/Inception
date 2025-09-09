@@ -5,7 +5,7 @@ FROM debian:12
 RUN apt update -y
 RUN apt install nginx -y
 
-
+COPY default /etc/nginx/sites-available/.
 #RUN apt install ufw -y  ->containers dont control HOST FIREWALL lol
 #RUN  ufw enable
 #RUN ufw allow 443
